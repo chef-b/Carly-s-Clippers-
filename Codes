@@ -1,0 +1,52 @@
+hairstyles = ["bouffant", "pixie", "dreadlocks", "crew", "bowl", "bob", "mohawk", "flattop"]
+
+prices = [30, 25, 40, 20, 20, 35, 50, 35]
+
+last_week = [2, 3, 5, 8, 4, 4, 6, 2]
+
+
+## Task 1 - Advertising Low Price ##
+
+average_price = sum(prices) / len(prices)
+
+print("Average Haircut Price:", average_price)
+
+
+## Task 2 - New Prices - $5 Using Loops ##
+
+new_prices = []
+
+for price in prices:
+    new_prices.append(price - 5)
+
+print("New Prices:", new_prices)
+
+
+## Task 3 - Total Revenue ##
+
+total_revenue = []
+
+for i in range(len(prices)):
+    total_revenue.append(prices[i] * last_week[i])
+
+print("Total Revenue:", sum(total_revenue))
+
+
+## Task 4 - Average Daily Revenue ##
+
+average_daily_revenue = sum(total_revenue) / 7
+
+print("Average Daily Revenue:", average_daily_revenue)
+
+
+## Task 5 - Comparison of Pricing Strategies - List Comprehension ##
+
+## Normal version:
+# cuts_under_30 = []
+# for i in range(len(new_prices)):
+#     if new_prices[i] < 30:
+#         cuts_under_30.append(hairstyles[i])
+
+cuts_under_30 = [hairstyles[i] for i in range(len(new_prices)) if new_prices[i] < 30]
+
+print("Haircuts Under $30:", cuts_under_30)
